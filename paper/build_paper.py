@@ -170,17 +170,302 @@ def _longtables_to_tables(tex_s):
     return "".join(out)
 
 
+
+def _split_cells(row: str):
+    cells, buf, depth, i = [], [], 0, 0
+    while i < len(row):
+        if row[i] == "\\":
+            buf.append(row[i:i + 2])
+            i += 2
+            continue
+        ch = row[i]
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+        elif ch == "&" and depth == 0:
+            cells.append("".join(buf).strip())
+            buf = []
+            i += 1
+            continue
+        buf.append(ch)
+        i += 1
+    cells.append("".join(buf).strip())
+    return cells
+
+
+def _split_rows(body: str):
+    """Split a tabular body into rows on top-level \\\\."""
+    body = body.strip()
+    if body.endswith(r"\\"):
+        body = body[:-2].rstrip()
+    rows, buf, depth, i = [], [], 0, 0
+    while i < len(body):
+        if body[i] == "\\":
+            # row break \\ but not \tabularnewline already converted
+            if i + 1 < len(body) and body[i + 1] == "\\" and depth == 0:
+                # not \\\\ inside a later macro we inserted (none yet)
+                nxt = body[i + 2:i + 3]
+                rows.append("".join(buf).strip())
+                buf = []
+                i += 2
+                continue
+            buf.append(body[i:i + 2])
+            i += 2
+            continue
+        if body[i] == "{":
+            depth += 1
+        elif body[i] == "}":
+            depth -= 1
+        buf.append(body[i])
+        i += 1
+    tail = "".join(buf).strip()
+    if tail:
+        rows.append(tail)
+    return rows
+
+
+def _stack_ci(cell: str) -> str:
+    s = re.sub(r"\s+", " ", cell).strip()
+    m = re.fullmatch(
+        r"(\d+\.\d+)\s*\{\[\}(\d+\.\d+),\s*(\d+\.\d+)\{\]\}", s
+    )
+    if not m:
+        return cell
+    a, b, c = m.groups()
+    return r"\makecell[r]{%s\\{[%s, %s]}}" % (a, b, c)
+
+
+def _stack_slash(cell: str) -> str:
+    s = re.sub(r"\s+", " ", cell).strip()
+    m = re.fullmatch(r"(\d+\.\d+)\s*/\s*(\d+(?:\.\d+)?)", s)
+    if not m:
+        return cell
+    return r"\makecell[r]{%s\\%s}" % m.groups()
+
+
+def _stack_paren(cell: str) -> str:
+    s = re.sub(r"\s+", " ", cell).strip()
+    m = re.fullmatch(r"(\d+\.\d+)\s*\(([^)]+)\)", s)
+    if not m:
+        return cell
+    return r"\makecell[r]{%s\\(%s)}" % m.groups()
+
+
+def _stack_qtriple(cell: str) -> str:
+    s = re.sub(r"\s+", " ", cell).strip()
+    m = re.fullmatch(r"(\d+\.\d+);\s*(\d+\.\d+);\s*(\d+\.\d+)", s)
+    if not m:
+        return cell
+    a, b, c = m.groups()
+    return r"\makecell[r]{%s\\%s; %s}" % (a, b, c)
+
+
+def _join_rows(rows_cells, space_when=None):
+    """rows_cells is a list of list-of-cells. space_when(prev, cur) -> bool."""
+    out = []
+    prev = None
+    for i, cells in enumerate(rows_cells):
+        line = " & ".join(cells) + r" \\"
+        out.append(line)
+        if i < len(rows_cells) - 1:
+            nxt = rows_cells[i + 1]
+            if space_when is not None and space_when(cells, nxt):
+                out.append(r"\addlinespace")
+        prev = cells
+    return "\n".join(out)
+
+
+def _model_changed(prev, cur):
+    return prev and cur and prev[0] != cur[0]
+
+
+def _polish_one_table(block: str) -> str:
+    cap_at = block.find(r"\caption")
+    brace = block.find("{", cap_at)
+    caption, after = _extract_braced(block, brace)
+    cap_l = re.sub(r"\s+", " ", caption)
+    font_m = re.search(r"\\(small|footnotesize)\b", block)
+    font = r"\\" + (font_m.group(1) if font_m else "small")
+    tab_at = block.find(r"\begin{tabular}")
+    if tab_at == -1:
+        return block
+    spec_brace = block.find("{", tab_at + len(r"\begin{tabular}"))
+    colspec, after_spec = _extract_braced(block, spec_brace)
+    inner = block[after_spec:]
+    inner = re.sub(r"^.*?\\toprule\s*", "", inner, count=1, flags=re.S)
+    mid = inner.find(r"\midrule")
+    bot = inner.rfind(r"\bottomrule")
+    header = inner[:mid].strip()
+    header = re.sub(r"(?:\\tabularnewline|\\\\)\s*$", "", header).strip()
+    rows_tex = inner[mid + len(r"\midrule"):bot].strip()
+    row_strs = _split_rows(rows_tex)
+    rows = [_split_cells(r) for r in row_strs]
+
+    note = ""
+    space_when = _model_changed
+
+    if "Model-level results over all four styles" in cap_l:
+        font = r"\small"
+        header = r"Model & Acc. & Hall. & CR & Surf. & PS & QS & Q (p)"
+        new = []
+        for cells in rows:
+            cells = list(cells)
+            # stack CI in accuracy, halluc, CR, surface, PS (indices 1-5)
+            for j in range(1, min(6, len(cells))):
+                cells[j] = _stack_ci(cells[j])
+            if len(cells) >= 8:
+                cells[7] = _stack_paren(cells[7])
+            new.append(cells)
+        rows = new
+        note = (
+            r"\par\nopagebreak\vspace{2pt}{\footnotesize\textit{Note.} "
+            r"Acc.\ = accuracy (\%); Hall.\ = hallucination rate (\%); "
+            r"CR = label consistency; Surf.\ = surface consistency; "
+            r"PS = accuracy spread (percentage points); "
+            r"QS = \% of questions whose correctness changes; "
+            r"Q (p) = Cochran's Q (p-value). "
+            r"Brackets are 95\% bootstrap CIs.}"
+        )
+
+    elif "Pooled over the four models" in cap_l:
+        font = r"\small"
+        header = (
+            r"Metric & Simple & Detailed & Polite & CoT & "
+            r"\makecell[r]{Q; naive $p$;\\cluster $p$}"
+        )
+        new = []
+        for cells in rows:
+            cells = list(cells)
+            for j in range(1, min(5, len(cells))):
+                cells[j] = _stack_ci(cells[j])
+            if len(cells) >= 6:
+                cells[5] = _stack_qtriple(cells[5])
+            new.append(cells)
+        rows = new
+        space_when = lambda a, b: True
+        note = (
+            r"\par\nopagebreak\vspace{2pt}{\footnotesize\textit{Note.} "
+            r"Each style column is the pooled rate with a question-clustered "
+            r"95\% bootstrap CI underneath. The last column is Cochran's Q, "
+            r"the naive $p$-value, and the question-clustered permutation $p$-value.}"
+        )
+
+    elif "Share of final answers longer than five words" in cap_l:
+        font = r"\small"
+        header = (
+            r"Model & \makecell{Simple\\(\% / tok.)} & "
+            r"\makecell{Detailed\\(\% / tok.)} & "
+            r"\makecell{Polite\\(\% / tok.)} & "
+            r"\makecell{CoT\\(\% / tok.)} & "
+            r"\makecell{Cochran\\Q ($p$)}"
+        )
+        new = []
+        for cells in rows:
+            cells = list(cells)
+            for j in range(1, min(5, len(cells))):
+                cells[j] = _stack_slash(cells[j])
+            if len(cells) >= 6:
+                cells[5] = _stack_paren(cells[5])
+            new.append(cells)
+        rows = new
+        note = (
+            r"\par\nopagebreak\vspace{2pt}{\footnotesize\textit{Note.} "
+            r"In each style cell the upper value is the share of final answers "
+            r"longer than five words (\%) and the lower value is the median "
+            r"output-token count. Medians of an even number of integer counts "
+            r"can end in .5.}"
+        )
+
+    elif "Accuracy with 95" in cap_l and "per model and style" in cap_l:
+        font = r"\small"
+        header = r"Model & Style & Accuracy [95\% CI] & Hall. & Format"
+        # Leave CIs on one line so the table can sit with the Results intro.
+
+    elif "alternative grading choices" in cap_l:
+        font = r"\small"
+        header = (
+            r"Model & v1 & v2 & Excl.\ K09/S22 & No FA & N-S wrong"
+        )
+        note = (
+            r"\par\nopagebreak\vspace{2pt}{\footnotesize\textit{Note.} "
+            r"v1 = strict first grader; v2 = final grader; "
+            r"Excl.\ K09/S22 = those two items dropped; "
+            r"No FA = rows without a ``Final answer'' line counted wrong; "
+            r"N-S wrong = ``Nur-Sultan'' not accepted as the capital of Kazakhstan.}"
+        )
+
+    elif "Pass 1 vs pass 2" in cap_l:
+        font = r"\small"
+        header = r"Model & Pairs & Raw & Extracted & Label"
+        note = (
+            r"\par\nopagebreak\vspace{2pt}{\footnotesize\textit{Note.} "
+            r"Raw = identical raw response text; Extracted = identical extracted "
+            r"answer; Label = identical correctness label. Values are \% of 120 pairs, "
+            r"except Pairs, which is the count.}"
+        )
+
+    elif "All non-correct answers" in cap_l:
+        font = r"\small"
+        colspec = r"@{}llll>{\raggedright\arraybackslash}p{0.38\linewidth}l@{}"
+        header = r"Model & Item & Style & Gold & Extracted answer (abbrev.) & Code"
+
+    body = _join_rows(rows, space_when=space_when)
+    out = (
+        "\\begin{table}[htb]\n"
+        "\\centering\n"
+        f"{font}\n"
+        f"\\caption{{{caption}}}\n"
+        f"\\begin{{tabular}}{{{colspec}}}\n"
+        "\\toprule\n"
+        f"{header} \\\\\n"
+        "\\midrule\n"
+        f"{body}\n"
+        "\\bottomrule\n"
+        "\\end{tabular}\n"
+        f"{note}\n"
+        "\\end{table}"
+    )
+    return out
+
+
+def _polish_tables(tex_s: str) -> str:
+    pat = re.compile(r"\\begin\{table\}.*?\\end\{table\}", re.S)
+    n = [0]
+
+    def repl(m):
+        n[0] += 1
+        return _polish_one_table(m.group(0))
+
+    out = pat.sub(repl, tex_s)
+    print(f"polished {n[0]} tables")
+    return out
+
+
 tex = _flatten_p_cols(tex)
 tex = _longtables_to_tables(tex)
-# Keep figures from requesting a full text-height box (overflows the page once a caption is added).
+tex = _polish_tables(tex)
+# Keep figures compact enough to sit with text (avoid a half-empty float page).
 tex = tex.replace(
     "width=0.85\\linewidth,height=\\textheight,keepaspectratio",
-    "width=0.85\\linewidth,height=0.42\\textheight,keepaspectratio",
+    "width=0.88\\linewidth,height=0.30\\textheight,keepaspectratio",
 )
 tex = tex.replace(
     "width=0.95\\linewidth,height=\\textheight,keepaspectratio",
-    "width=0.95\\linewidth,height=0.42\\textheight,keepaspectratio",
+    "width=0.88\\linewidth,height=0.30\\textheight,keepaspectratio",
 )
+# Also rewrite any already-capped figure includes from a previous pass's leftover
+# (build always starts from pandoc, which uses \textheight).
+tex = tex.replace(
+    "width=0.85\\linewidth,height=0.42\\textheight,keepaspectratio",
+    "width=0.88\\linewidth,height=0.30\\textheight,keepaspectratio",
+)
+tex = tex.replace(
+    "width=0.95\\linewidth,height=0.42\\textheight,keepaspectratio",
+    "width=0.88\\linewidth,height=0.30\\textheight,keepaspectratio",
+)
+
+tex = tex.replace("\\end{figure}", "\\end{figure}\n\\FloatBarrier")
 
 (P / "main.tex").write_text(tex)
 print("ok")

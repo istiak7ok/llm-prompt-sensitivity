@@ -1,17 +1,34 @@
 % Table and figure layout: floats, not longtables that can overflow the footer.
 \usepackage{caption}
+\usepackage{makecell}
 \captionsetup{font=small, skip=4pt, justification=raggedright, singlelinecheck=false}
 \usepackage[section]{placeins}
-\setlength{\tabcolsep}{4pt}
+\usepackage{flafter} % do not place a float before its first reference
+\usepackage{needspace}
+\usepackage[nobottomtitles*]{titlesec}
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.08}
 \makeatletter
-\def\fps@figure{tbp}
-\def\fps@table{tbp}
+\def\fps@figure{htb}
+\def\fps@table{htb}
 \makeatother
-\renewcommand{\topfraction}{0.85}
-\renewcommand{\bottomfraction}{0.45}
-\renewcommand{\textfraction}{0.12}
-\renewcommand{\floatpagefraction}{0.7}
-\setcounter{topnumber}{3}
-\setcounter{bottomnumber}{2}
-\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.72}
+\renewcommand{\bottomfraction}{0.40}
+\renewcommand{\textfraction}{0.18}
+\renewcommand{\floatpagefraction}{0.85}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{1}
+\setcounter{totalnumber}{3}
+\setlength{\textfloatsep}{10pt plus 3pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
 \usepackage{xurl}
+
+\usepackage{etoolbox}
+% Keep floats inside the subsection that first mentions them.
+\preto\subsection{\FloatBarrier}
+\setlength{\bibsep}{3pt plus 1pt minus 1pt}
