@@ -1,0 +1,27 @@
+{
+  "title": "Same Question, Four Phrasings: Prompt Sensitivity, Consistency and Hallucination of Four 7-9B Open-Weight Language Models on Short Factual Questions",
+  "creators": [
+    {
+      "name": "Saikot, Istiak Hossain",
+      "affiliation": "Independent researcher, Bangladesh"
+    }
+  ],
+  "description": "Code, 120 source-verified short-answer questions, raw Ollama outputs from both passes, graded results, and analysis scripts for the paper “Same Question, Four Phrasings.” The study measures prompt sensitivity, consistency and hallucination of four 7–9B open-weight language models (Llama-3.1-8B, Mistral-7B, Gemma-2-9B, Qwen2.5-7B) on short factual questions in four prompt styles. Code is released under the MIT licence; the question set is released under CC BY-SA 4.0.",
+  "license": "mit",
+  "upload_type": "software",
+  "access_right": "open",
+  "keywords": [
+    "large language models",
+    "prompt sensitivity",
+    "hallucination",
+    "consistency",
+    "open-weight models"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/istiak7ok/llm-prompt-sensitivity",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
