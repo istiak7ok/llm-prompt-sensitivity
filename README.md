@@ -1,22 +1,20 @@
-This folder is the push-ready public snapshot of the project (code, questions, raw outputs from both passes, graded results, and the analysis script). No GitHub or Zenodo URL has been created yet.
-
 # Prompt sensitivity, consistency and hallucination in open-weight LLMs
 
 How much does the *wording* of a plain factual question change what a local open-weight LLM answers, and how often is that answer confidently wrong?
 This repository asks 120 original, source-verified short-answer questions to four 7-9B models (Llama-3.1-8B, Mistral-7B, Gemma-2-9B, Qwen2.5-7B) in four prompt styles (simple, detailed, polite, chain-of-thought) through Ollama. It then measures accuracy, consistency, hallucination, prompt sensitivity and error types.
 
-- Background and gap: `lit_review.md`
-- Full method, formulas, statistics, venues and timeline: `design.md`
-- **Status (25 Nov 2026, final submission version):** the experiment has been run (pass 1: 1,920 calls; pass 2: 480 calls, 25% subset) on the author's laptop, graded, audited and analysed. Paper: `paper/main.pdf` (source `paper/main.tex`, `paper/paper.md`); submission to-do list: `paper/submission_checklist.md`. Gold answers and the audit were verified by script and by the AI assistant only; there was no human verification. That is a limitation of the study, not a step still scheduled.
-- **Headline:** a strict first grader turned Mistral-7B's verbose answers into a 10.2-point accuracy deficit (88.8% rather than 99.0%); style changed answer *form* far more than correctness; false answers were rare (0.2-1.0%) but patterned; temperature-0 outputs were not fully repeatable, though no correctness label changed. Accuracy was near ceiling (98.3-99.6%), so the study is under-powered for small correctness differences. See `paper/paper.md`.
+- **Status (25 Nov 2026, final submission version):** the experiment has been run (pass 1: 1,920 calls; pass 2: 480 calls, 25% subset) on the author's laptop, graded, audited and analysed. The manuscript source is `paper/paper_src.md` (tables and TeX are built with `paper/build_tables.py` and `paper/build_paper.py`). Gold answers and the audit were verified by script and by the AI assistant only; there was no human verification. That is a limitation of the study, not a step still scheduled.
+- **Headline:** a strict first grader turned Mistral-7B's verbose answers into a 10.2-point accuracy deficit (88.8% rather than 99.0%); style changed answer *form* far more than correctness; false answers were rare (0.2-1.0%) but patterned; temperature-0 outputs were not fully repeatable, though no correctness label changed. Accuracy was near ceiling (98.3-99.6%), so the study is under-powered for small correctness differences.
 - **Excluded from all results:** `results/raw/qwen2.5_7b_pilot_qwen.jsonl` (pilot) and any `smoke-*` files.
+
+## Data and code availability
+The public repository is https://github.com/istiak7ok/llm-prompt-sensitivity. A Zenodo archive DOI will be minted for the v1.0 release of that repository. The DOI has not been issued yet and will be inserted here: [Zenodo DOI for v1.0: to be added after minting].
 
 ## Repository layout
 ```
-research-paper/
-├── README.md, LICENSE, requirements.txt, config.json   # config.json = every setting in one place
-├── lit_review.md, design.md, run_analysis.sh
-├── paper/        # paper.md, main.tex, references.bib, main.pdf, submission_checklist.md, figures/
+.
+├── README.md, LICENSE, CITATION.cff, requirements.txt, config.json, run_analysis.sh
+├── paper/        # paper_src.md, build scripts, references.bib, preamble.tex
 ├── data/
 │   ├── question_bank_authored.psv     # the 120 questions as written (human-readable)
 │   ├── questions.jsonl                # verified, frozen set used by the experiment
@@ -93,10 +91,10 @@ Analysis seed: 2026 (bootstrap and audit sample). The SHA-256 of the question fi
 ```powershell
 python src\verify_questions.py
 ```
-This downloads each source article, pins its revision, and writes `data\verification_report.csv`. Every row was reviewed by the AI assistant (`ai_verification`, `ai_note`). For this submission version, gold answers were verified by script and by the AI assistant only; there was no human verification (the `human_verified` column is empty). That is a limitation of the study, not a step still scheduled. See `design.md` §3.3 and `data/README.md`.
+This downloads each source article, pins its revision, and writes `data\verification_report.csv`. Every row was reviewed by the AI assistant (`ai_verification`, `ai_note`). For this submission version, gold answers were verified by script and by the AI assistant only; there was no human verification (the `human_verified` column is empty). That is a limitation of the study, not a step still scheduled. See `data/README.md`.
 
 ## Licence
 Code: MIT. Question set: CC BY-SA 4.0.
 
 ## AI-assistance disclosure (keep this, and adapt it for the paper)
-Author: Istiak Hossain Saikot (Independent researcher, Bangladesh). An AI assistant designed the experiment with the author, wrote the Python code, found and verified the citations, reviewed all 120 gold answers, served as the only coder in the grading audit and in a 100-row invented-detail sample, and drafted the manuscript. The author ran the experiments on the author's laptop and is responsible for the final text. Gold answers and the audit were verified by script and by the AI assistant only; there was no human verification of the answer key, the audit codes, or the invented-detail codes. That is a limitation of this study. Targets: arXiv (cs.CL) and/or JSR; see `design.md` §12 and `paper/submission_checklist.md`.
+Author: Istiak Hossain Saikot (Independent researcher, Bangladesh). An AI assistant designed the experiment with the author, wrote the Python code, found and verified the citations, reviewed all 120 gold answers, served as the only coder in the grading audit and in a 100-row invented-detail sample, and drafted the manuscript. The author ran the experiments on the author's laptop and is responsible for the final text. Gold answers and the audit were verified by script and by the AI assistant only; there was no human verification of the answer key, the audit codes, or the invented-detail codes. That is a limitation of this study. Targets: arXiv (cs.CL) and/or JSR.

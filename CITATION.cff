@@ -7,6 +7,12 @@ authors:
     affiliation: "Independent researcher, Bangladesh"
 date-released: "2026-11-25"
 license: MIT
+repository-code: "https://github.com/istiak7ok/llm-prompt-sensitivity"
+# Zenodo DOI for the v1.0 release — TO BE ADDED AFTER MINTING (do not invent a DOI).
+# identifiers:
+#   - type: doi
+#     value: "10.5281/zenodo.XXXXXXX"
+#     description: "Zenodo archive of the v1.0 release"
 keywords:
   - large language models
   - prompt sensitivity
