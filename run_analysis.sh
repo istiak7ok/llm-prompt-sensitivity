@@ -3,6 +3,7 @@
 # Only the four main models are graded; the pilot (qwen2.5_7b_pilot_qwen.jsonl) and smoke files are ignored.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")" && pwd)"
+mkdir -p "$ROOT/results/tables" "$ROOT/results/figures" "$ROOT/results/audit" "$ROOT/paper/figures"
 cd "$ROOT/src"
 python grade.py                 # pass 1 -> results/results.csv + audit sample
 python grade.py --tag _pass2    # pass 2 -> results/results_pass2.csv
