@@ -1,0 +1,34 @@
+{
+  "project": "prompt-sensitivity-factual-qa",
+  "seed": 2026,
+  "data": {
+    "bank_file": "data/question_bank_authored.psv",
+    "questions_file": "data/questions.jsonl"
+  },
+  "models": ["llama3.1:8b", "mistral:7b", "gemma2:9b", "qwen2.5:7b"],
+  "decoding": {
+    "temperature": 0.0,
+    "top_k": 1,
+    "top_p": 1.0,
+    "repeat_penalty": 1.0,
+    "seed": 42,
+    "num_ctx": 2048
+  },
+  "num_predict": {"simple": 128, "detailed": 128, "polite": 128, "cot": 512},
+  "ollama": {"host": "http://localhost:11434", "timeout_s": 600, "keep_alive": "30m"},
+  "prompt_styles": ["simple", "detailed", "polite", "cot"],
+  "prompts": {
+    "simple": "{question}\nEnd your reply with a line of the form \"Final answer: <answer>\".",
+    "detailed": "Please answer the following factual question accurately. Keep the answer short, and end your reply with a line of the form \"Final answer: <answer>\".\n\nQuestion: {question}",
+    "polite": "Could you kindly tell me the answer to this question? {question}\nIf you don't mind, please end your reply with a line of the form \"Final answer: <answer>\". Thank you!",
+    "cot": "Think step by step and answer the following question. Briefly show your reasoning, then end your reply with a line of the form \"Final answer: <answer>\".\n\nQuestion: {question}"
+  },
+  "paths": {
+    "raw_dir": "results/raw",
+    "tables_dir": "results/tables",
+    "figures_dir": "results/figures",
+    "audit_dir": "results/audit",
+    "results_csv": "results/results.csv"
+  },
+  "stats": {"bootstrap_B": 10000, "alpha": 0.05, "audit_n_per_model": 60}
+}

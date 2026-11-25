@@ -1,0 +1,29 @@
+{
+  "recorded_at_local": "2026-11-25 (Asia/Dhaka, UTC+6)",
+  "recorded_after_the_run": true,
+  "source": "ollama list on the same Windows laptop that ran the experiment",
+  "ollama_version_at_run": "0.40.18",
+  "note": "These are the 12-character short IDs that Ollama displays in `ollama list`. All four tags are the default Q4_K_M variants. The short IDs for llama3.1:8b and qwen2.5:7b match the prefixes of the full 64-character digests stored in environment.json at the start of the run. mistral:7b and gemma2:9b were pulled after that snapshot, so only these short IDs are available; full digests were not invented.",
+  "models": {
+    "llama3.1:8b": {
+      "ollama_list_id": "46e0c10c039e",
+      "quantization": "Q4_K_M",
+      "full_digest_in_environment_json": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e"
+    },
+    "mistral:7b": {
+      "ollama_list_id": "6577803aa9a0",
+      "quantization": "Q4_K_M",
+      "full_digest_in_environment_json": null
+    },
+    "gemma2:9b": {
+      "ollama_list_id": "ff02c3702f32",
+      "quantization": "Q4_K_M",
+      "full_digest_in_environment_json": null
+    },
+    "qwen2.5:7b": {
+      "ollama_list_id": "845dbda0ea48",
+      "quantization": "Q4_K_M",
+      "full_digest_in_environment_json": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e"
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "timestamp_utc": "2026-11-24T17:24:42+00:00",
+  "python": "3.12.8 (tags/v3.12.8:2dc476b, Dec  3 2024, 19:30:04) [MSC v.1942 64 bit (AMD64)]",
+  "os": "Windows-11-10.0.26200-SP0",
+  "machine": "AMD64",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "ollama_version": "0.40.18",
+  "models": {
+    "llama3.1:8b": {
+      "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+      "size": 4920753328,
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "llama",
+        "families": [
+          "llama"
+        ],
+        "parameter_size": "8.0B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 131072,
+        "embedding_length": 4096,
+        "runner": "ggml"
+      }
+    },
+    "qwen2.5:7b": {
+      "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+      "size": 4683087332,
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen2",
+        "families": [
+          "qwen2"
+        ],
+        "parameter_size": "7.6B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 32768,
+        "embedding_length": 3584,
+        "runner": "ggml"
+      }
+    }
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 621.24, 8151 MiB",
+  "questions_sha256": "88b7882986da0a09af9e3e227f0b45896449167ad0647fb6bb1dfa0ea38b1647",
+  "config": {
+    "project": "prompt-sensitivity-factual-qa",
+    "seed": 2026,
+    "data": {
+      "bank_file": "data/question_bank_authored.psv",
+      "questions_file": "data/questions.jsonl"
+    },
+    "models": [
+      "llama3.1:8b",
+      "mistral:7b",
+      "gemma2:9b",
+      "qwen2.5:7b"
+    ],
+    "decoding": {
+      "temperature": 0.0,
+      "top_k": 1,
+      "top_p": 1.0,
+      "repeat_penalty": 1.0,
+      "seed": 42,
+      "num_ctx": 2048
+    },
+    "num_predict": {
+      "simple": 128,
+      "detailed": 128,
+      "polite": 128,
+      "cot": 512
+    },
+    "ollama": {
+      "host": "http://localhost:11434",
+      "timeout_s": 600,
+      "keep_alive": "30m"
+    },
+    "prompt_styles": [
+      "simple",
+      "detailed",
+      "polite",
+      "cot"
+    ],
+    "prompts": {
+      "simple": "{question}\nEnd your reply with a line of the form \"Final answer: <answer>\".",
+      "detailed": "Please answer the following factual question accurately. Keep the answer short, and end your reply with a line of the form \"Final answer: <answer>\".\n\nQuestion: {question}",
+      "polite": "Could you kindly tell me the answer to this question? {question}\nIf you don't mind, please end your reply with a line of the form \"Final answer: <answer>\". Thank you!",
+      "cot": "Think step by step and answer the following question. Briefly show your reasoning, then end your reply with a line of the form \"Final answer: <answer>\".\n\nQuestion: {question}"
+    },
+    "paths": {
+      "raw_dir": "results/raw",
+      "tables_dir": "results/tables",
+      "figures_dir": "results/figures",
+      "audit_dir": "results/audit",
+      "results_csv": "results/results.csv"
+    },
+    "stats": {
+      "bootstrap_B": 10000,
+      "alpha": 0.05,
+      "audit_n_per_model": 60
+    }
+  }
+}

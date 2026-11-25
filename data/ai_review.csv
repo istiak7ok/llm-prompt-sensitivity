@@ -1,0 +1,121 @@
+question_id,ai_verdict,ai_note
+S01,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S02,"verified by AI assistant, pending human spot-check",Evidence sentence is indirect (red wandering star); fact is standard. Human spot-check advised.
+S03,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S04,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S05,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S06,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S07,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S08,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S09,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S10,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S11,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S12,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S13,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S14,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S15,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S16,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S17,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S18,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S19,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S20,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S21,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S22,"verified by AI assistant, pending human spot-check","Audit (post-run): question is ambiguous - John Murray was the 1859 PUBLISHER, so 'John Murray' is a correct literal answer and is accepted. Item flagged ambiguous; robustness analysis excludes it. Reword to 'Who wrote...' in future versions."
+S23,"verified by AI assistant, pending human spot-check",Skin as largest organ is the standard textbook answer (liver is largest internal organ); keep.
+S24,"verified by AI assistant, pending human spot-check","Gold 5,700 y matches current Wikipedia (5700±30). 5,730 (older Libby/Cambridge value) also accepted as it is still widely cited."
+S25,"verified by AI assistant, pending human spot-check",Removed bare alias 'Thomson' (would wrongly accept William Thomson/Lord Kelvin).
+S26,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S27,"verified by AI assistant, pending human spot-check",'Alpha Centauri C' is the same star; answering just 'Alpha Centauri' (the system) is graded wrong - flag in manual audit if it occurs.
+S28,"verified by AI assistant, pending human spot-check","Removed bare alias 'Curie' (would wrongly accept Pierre Curie); added 'Madame Curie', 'Maria Skłodowska-Curie'."
+S29,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+S30,"verified by AI assistant, pending human spot-check","Evidence sentence gives 97.77°, consistent with 'about 98 degrees'."
+G01,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G02,"verified by AI assistant, pending human spot-check",Nile vs Amazon 'longest in world' dispute does not affect 'longest in Africa'.
+G03,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G04,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G05,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G06,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G07,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G08,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G09,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G10,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G11,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G12,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G13,"verified by AI assistant, pending human spot-check","'Holy See' accepted as alias though strictly the sovereign entity, not the territory."
+G14,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G15,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G16,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G17,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G18,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G19,"verified by AI assistant, pending human spot-check",Alias 'Ural' could also match 'Ural River'; check in manual audit.
+G20,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G21,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G22,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G23,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G24,"verified by AI assistant, pending human spot-check","Name was Nur-Sultan 2019-2022, Astana again since 2022; both accepted."
+G25,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G26,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G27,"verified by AI assistant, pending human spot-check",Evidence comes from 'Seven Summits' list (Kilimanjaro for Africa); fact is standard.
+G28,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G29,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+G30,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H01,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H02,"verified by AI assistant, pending human spot-check",Both V-J Day (15 Aug) and formal surrender (2 Sep) are in 1945.
+H03,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H04,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H05,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H06,"verified by AI assistant, pending human spot-check","Independence declared 26 Mar 1971, war ended 16 Dec 1971; both in 1971."
+H07,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H08,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H09,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H10,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H11,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H12,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H13,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H14,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H15,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H16,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H17,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H18,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H19,"verified by AI assistant, pending human spot-check","'Istanbul' accepted (same city, modern name); 'Byzantium' accepted (earlier name)."
+H20,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H21,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H22,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H23,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H24,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H25,"verified by AI assistant, pending human spot-check",Question says 'last active ruler' because Caesarion nominally co-ruled; Cleopatra VII is the standard answer.
+H26,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H27,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H28,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+H29,"verified by AI assistant, pending human spot-check",Removed bare alias 'Lie' (too short/ambiguous for substring matching). Audit (post-run): added 'Trygve Halvdan Lie' (full name used by Llama-3.1).
+H30,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K01,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K02,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K03,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K04,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K05,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K06,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K07,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K08,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K09,"verified by AI assistant, pending human spot-check","Audit (post-run): question is ambiguous - '204' (squares of all sizes, a well-known puzzle reading) is accepted alongside 64. Item flagged ambiguous; robustness analysis excludes it. Reword to 'How many squares (cells)...' in future versions."
+K10,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K11,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K12,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K13,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K14,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K15,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K16,"verified by AI assistant, pending human spot-check",42.2 (rounded) accepted besides 42.195.
+K17,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K18,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K19,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K20,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K21,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K22,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K23,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K24,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K25,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K26,"verified by AI assistant, pending human spot-check",Tier label 'hard' is generous; see K28 note.
+K27,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K28,"verified by AI assistant, pending human spot-check","Tier label 'hard' is generous (fact is well known); tier is a prior label, empirical difficulty will be reported."
+K29,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.
+K30,"verified by AI assistant, pending human spot-check",Gold answer and aliases checked against the pinned source; no issues found.

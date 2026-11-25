@@ -1,0 +1,121 @@
+# id | domain | tier | question | gold answer | aliases (;-separated) | Wikipedia source title | evidence keywords: ;=AND, /=OR; must co-occur with an alias in ONE sentence of the source
+S01|science|easy|What is the chemical symbol for gold?|Au|Au|Gold|symbol
+S02|science|easy|Which planet is known as the Red Planet?|Mars|Mars|Mars|Red Planet/red wandering star
+S03|science|easy|Which gas do plants take in from the air for photosynthesis?|carbon dioxide|carbon dioxide;CO2|Photosynthesis|sunlight
+S04|science|easy|How many bones are in the typical adult human skeleton?|206|206;two hundred six;two hundred and six|Human skeleton|bones
+S05|science|easy|What is the largest planet in the Solar System?|Jupiter|Jupiter|Jupiter|largest
+S06|science|easy|What is the chemical formula of water?|H2O|H2O;H₂O|Water|formula
+S07|science|easy|Which organ pumps blood through the human body?|heart|heart|Heart|pumps blood
+S08|science|easy|In a eukaryotic cell, which structure contains most of the genetic material?|nucleus|nucleus;cell nucleus|Cell nucleus|genetic
+S09|science|easy|What is the atomic number of hydrogen?|1|1;one|Hydrogen|atomic number
+S10|science|easy|Which type of blood cell carries oxygen around the body?|red blood cell|red blood cell;red blood cells;erythrocyte;erythrocytes|Red blood cell|oxygen
+S11|science|easy|What force keeps the planets in orbit around the Sun?|gravity|gravity;gravitation;gravitational force|Gravity|orbit;Sun
+S12|science|medium|Who developed the general theory of relativity?|Albert Einstein|Albert Einstein;Einstein|General relativity|Einstein
+S13|science|medium|What is the chemical symbol for sodium?|Na|Na|Sodium|symbol
+S14|science|medium|Which gas makes up the largest share of Earth's atmosphere?|nitrogen|nitrogen;N2|Atmosphere of Earth|nitrogen
+S15|science|medium|Who discovered penicillin in 1928?|Alexander Fleming|Alexander Fleming;Fleming|Penicillin|1928
+S16|science|medium|Which organelle produces most of a cell's ATP?|mitochondrion|mitochondrion;mitochondria|Mitochondrion|ATP
+S17|science|medium|What is the SI unit of electrical resistance?|ohm|ohm;ohms;Ω|Ohm|resistance
+S18|science|medium|Which planet has the most prominent ring system in the Solar System?|Saturn|Saturn|Rings of Saturn|ring system
+S19|science|medium|Which element has atomic number 6?|carbon|carbon|Carbon|atomic number 6
+S20|science|medium|Which scientist wrote the Principia, setting out the laws of motion and universal gravitation?|Isaac Newton|Isaac Newton;Newton|Philosophiæ Naturalis Principia Mathematica|Newton
+S21|science|medium|Which protein in red blood cells carries oxygen?|hemoglobin|hemoglobin;haemoglobin|Hemoglobin|oxygen
+S22|science|medium|Who published "On the Origin of Species" in 1859?|Charles Darwin|Charles Darwin;Darwin;John Murray|On the Origin of Species|November 1859
+S23|science|medium|What is the largest organ of the human body?|skin|skin|Human skin|largest organ
+S24|science|hard|What is the half-life of carbon-14, to the nearest hundred years?|5,700 years|5700;5,700;5730;5,730|Carbon-14|half-life
+S25|science|hard|Which physicist discovered the electron in 1897?|J. J. Thomson|J. J. Thomson;J.J. Thomson;JJ Thomson;Joseph John Thomson|Electron|credited;discovery
+S26|science|hard|Which metal has the highest melting point of all metals?|tungsten|tungsten;wolfram|Tungsten|melting point
+S27|science|hard|What is the nearest known star to the Sun?|Proxima Centauri|Proxima Centauri;Proxima;Alpha Centauri C|Proxima Centauri|nearest
+S28|science|hard|Which scientist discovered the elements polonium and radium together with her husband Pierre?|Marie Curie|Marie Curie;Marie Skłodowska-Curie;Marie Sklodowska Curie;Maria Skłodowska-Curie;Madame Curie|Marie Curie|polonium
+S29|science|hard|What was the name of the supercontinent that existed roughly 335 to 175 million years ago?|Pangaea|Pangaea;Pangea|Pangaea|supercontinent
+S30|science|hard|Which planet of the Solar System rotates on its side, with an axial tilt of about 98 degrees?|Uranus|Uranus|Uranus|97.77
+G01|geography|easy|What is the capital city of Australia?|Canberra|Canberra|Canberra|capital
+G02|geography|easy|What is the longest river in Africa?|Nile|Nile;Nile River;River Nile|Nile|longest river
+G03|geography|easy|Which country has the largest land area in the world?|Russia|Russia;Russian Federation|Russia|largest country
+G04|geography|easy|What is the capital city of Canada?|Ottawa|Ottawa|Ottawa|capital
+G05|geography|easy|What is the largest ocean on Earth?|Pacific Ocean|Pacific Ocean;Pacific|Pacific Ocean|largest
+G06|geography|easy|What is the capital city of Japan?|Tokyo|Tokyo|Tokyo|capital
+G07|geography|easy|What is the highest mountain on Earth above sea level?|Mount Everest|Mount Everest;Everest;Sagarmatha;Chomolungma|Mount Everest|highest mountain
+G08|geography|easy|What is the capital city of Bangladesh?|Dhaka|Dhaka;Dacca|Dhaka|capital
+G09|geography|easy|What is the largest hot desert in the world?|Sahara|Sahara;Sahara Desert|Sahara|hot desert
+G10|geography|easy|What is the capital city of Brazil?|Brasília|Brasília;Brasilia|Brasília|capital
+G11|geography|easy|What is the capital city of Kenya?|Nairobi|Nairobi|Nairobi|capital
+G12|geography|medium|What is the capital city of New Zealand?|Wellington|Wellington|Wellington|capital
+G13|geography|medium|What is the smallest country in the world by area?|Vatican City|Vatican City;Vatican;Holy See|Vatican City|smallest
+G14|geography|medium|Which strait separates Europe from Africa at the western end of the Mediterranean Sea?|Strait of Gibraltar|Strait of Gibraltar;Gibraltar|Strait of Gibraltar|Africa
+G15|geography|medium|What is the capital city of Turkey?|Ankara|Ankara|Ankara|capital
+G16|geography|medium|Which African country has the largest population?|Nigeria|Nigeria|Nigeria|Africa;populous
+G17|geography|medium|What is the largest lake in Africa by area?|Lake Victoria|Lake Victoria;Victoria|Lake Victoria|largest
+G18|geography|medium|In which city does the Swiss federal government sit?|Bern|Bern;Berne|Bern|federal city
+G19|geography|medium|Which mountain range is traditionally seen as the boundary between Europe and Asia in Russia?|Ural Mountains|Ural Mountains;Urals;Ural|Ural Mountains|Europe;Asia
+G20|geography|medium|What is the capital city of Vietnam?|Hanoi|Hanoi;Ha Noi|Hanoi|capital
+G21|geography|medium|In which country is the Atacama Desert mainly located?|Chile|Chile|Atacama Desert|Chile
+G22|geography|medium|What is the longest river in Europe?|Volga|Volga;Volga River|Volga|longest river
+G23|geography|medium|Kathmandu is the capital of which country?|Nepal|Nepal|Kathmandu|capital
+G24|geography|hard|What is the capital city of Kazakhstan?|Astana|Astana;Nur-Sultan|Astana|capital
+G25|geography|hard|What is the deepest lake in the world?|Lake Baikal|Lake Baikal;Baikal|Lake Baikal|deepest
+G26|geography|hard|What is the capital city of Burkina Faso?|Ouagadougou|Ouagadougou|Ouagadougou|capital
+G27|geography|hard|What is the highest mountain in Africa?|Mount Kilimanjaro|Mount Kilimanjaro;Kilimanjaro|Seven Summits|Africa
+G28|geography|hard|What is the capital city of Mongolia?|Ulaanbaatar|Ulaanbaatar;Ulan Bator;Ulaan Baatar|Ulaanbaatar|capital
+G29|geography|hard|What is the capital city of Myanmar?|Naypyidaw|Naypyidaw;Nay Pyi Taw;Naypyitaw;Naypyidaw Union Territory|Naypyidaw|capital
+G30|geography|hard|What is the capital city of Bhutan?|Thimphu|Thimphu|Thimphu|capital
+H01|history|easy|Who was the first President of the United States?|George Washington|George Washington;Washington|George Washington|unanimously elected/first president
+H02|history|easy|In which year did World War II end?|1945|1945|World War II|ended
+H03|history|easy|Who was the first person to walk on the Moon?|Neil Armstrong|Neil Armstrong;Armstrong|Neil Armstrong|Moon
+H04|history|easy|In which year did the Titanic sink?|1912|1912|Titanic|sank
+H05|history|easy|In which year did the Berlin Wall fall?|1989|1989|Berlin Wall|9 November
+H06|history|easy|In which year did Bangladesh become independent?|1971|1971|Bangladesh Liberation War|independence
+H07|history|easy|In which year did Apollo 11 land on the Moon?|1969|1969|Apollo 11|landed
+H08|history|easy|Which leader of the Indian independence movement is widely known as "Mahatma"?|Mohandas Karamchand Gandhi|Mohandas Karamchand Gandhi;Mohandas Gandhi;Mahatma Gandhi;Gandhi|Mahatma Gandhi|Mahatma
+H09|history|easy|Who painted the Mona Lisa?|Leonardo da Vinci|Leonardo da Vinci;Leonardo;da Vinci|Mona Lisa|Leonardo
+H10|history|easy|Who was Prime Minister of the United Kingdom for most of World War II?|Winston Churchill|Winston Churchill;Churchill|Winston Churchill|Prime Minister
+H11|history|easy|Which ancient civilisation built the pyramids of Giza?|ancient Egyptians|ancient Egyptians;Egyptians;ancient Egypt;Egypt;Egyptian|Giza pyramid complex|Egypt
+H12|history|medium|In which year did the French Revolution begin?|1789|1789|French Revolution|began
+H13|history|medium|Who was the first emperor of a unified China?|Qin Shi Huang|Qin Shi Huang;Shi Huangdi;Qin Shi Huangdi;Ying Zheng|Qin Shi Huang|first emperor
+H14|history|medium|In which year did Christopher Columbus first reach the Americas?|1492|1492|Christopher Columbus|Americas
+H15|history|medium|Which 1919 peace treaty formally ended World War I between Germany and the Allies?|Treaty of Versailles|Treaty of Versailles;Versailles|Treaty of Versailles|peace treaty
+H16|history|medium|Who led the Soviet Union during the Cuban Missile Crisis of 1962?|Nikita Khrushchev|Nikita Khrushchev;Khrushchev|Cuban Missile Crisis|Khrushchev
+H17|history|medium|In which year was the United Nations founded?|1945|1945|United Nations|established/founded
+H18|history|medium|Who founded the Mughal Empire?|Babur|Babur;Zahir-ud-din Muhammad Babur;Babar|Babur|Mughal
+H19|history|medium|What was the capital city of the Byzantine Empire?|Constantinople|Constantinople;Byzantium;Istanbul|Byzantine Empire|Constantinople
+H20|history|medium|Who is known in Bangladesh as "Bangabandhu" and led the country to independence?|Sheikh Mujibur Rahman|Sheikh Mujibur Rahman;Mujibur Rahman;Sheikh Mujib;Mujib|Sheikh Mujibur Rahman|Bangabandhu
+H21|history|medium|In which year did the October Revolution take place in Russia?|1917|1917|October Revolution|Bolshevik
+H22|history|medium|At which 1815 battle was Napoleon finally defeated?|Battle of Waterloo|Battle of Waterloo;Waterloo|Battle of Waterloo|last engagement
+H23|history|medium|Who became South Africa's first president elected in a fully democratic election in 1994?|Nelson Mandela|Nelson Mandela;Mandela|Nelson Mandela|1994
+H24|history|hard|In which year was Magna Carta first agreed?|1215|1215|Magna Carta|King John
+H25|history|hard|Who was the last active ruler of the Ptolemaic Kingdom of Egypt?|Cleopatra VII|Cleopatra VII;Cleopatra;Cleopatra VII Philopator|Cleopatra|Ptolemaic
+H26|history|hard|In which year did the Ottoman Empire capture Constantinople?|1453|1453|Fall of Constantinople|Ottoman
+H27|history|hard|Which Carthaginian general crossed the Alps with war elephants in 218 BC?|Hannibal|Hannibal;Hannibal Barca|Hannibal|Alps
+H28|history|hard|In which year was the Battle of Plassey fought?|1757|1757|Battle of Plassey|East India Company
+H29|history|hard|Who was the first Secretary-General of the United Nations?|Trygve Lie|Trygve Lie;Trygve Halvdan Lie|Trygve Lie|first secretary-general
+H30|history|hard|Mansa Musa ruled which West African empire?|Mali Empire|Mali Empire;Mali|Mansa Musa|Mali
+K01|general|easy|How many days are there in a leap year?|366|366;three hundred sixty-six|Leap year|days
+K02|general|easy|How many legs does a spider have?|8|8;eight|Spider|legs
+K03|general|easy|What is the currency of Japan?|yen|yen;Japanese yen;JPY|Japanese yen|currency
+K04|general|easy|How many strings does a standard guitar have?|6|6;six|Guitar|six or twelve strings/six-string/six strings
+K05|general|easy|What is the currency of the United Kingdom?|pound sterling|pound sterling;pound;sterling;British pound;GBP|Pound sterling|currency
+K06|general|easy|In which sport is a "slam dunk" scored?|basketball|basketball|Slam dunk|basketball
+K07|general|easy|What is the largest animal on Earth?|blue whale|blue whale|Blue whale|largest animal
+K08|general|easy|How many keys does a standard modern piano have?|88|88;eighty-eight|Piano|keys
+K09|general|easy|How many squares are there on a standard chessboard?|64|64;sixty-four;204|Chessboard|squares
+K10|general|easy|Who wrote the play "Romeo and Juliet"?|William Shakespeare|William Shakespeare;Shakespeare|Romeo and Juliet|Shakespeare
+K11|general|easy|How many cards are in a standard deck, not counting jokers?|52|52;fifty-two|Standard 52-card deck|cards
+K12|general|medium|What is the official currency of the eurozone?|euro|euro;EUR;€|Euro|eurozone
+K13|general|medium|How often are the Summer Olympic Games normally held?|every four years|every four years;every 4 years;four years;4 years;quadrennially|Summer Olympic Games|four years
+K14|general|medium|How many players does each cricket team have on the field?|11|11;eleven|Cricket|eleven players
+K15|general|medium|Who wrote the "Harry Potter" novels?|J. K. Rowling|J. K. Rowling;J.K. Rowling;JK Rowling;Joanne Rowling;Rowling|Harry Potter|written by
+K16|general|medium|What is the official length of a marathon in kilometres?|42.195 km|42.195;42.2;42,195|Marathon|km
+K17|general|medium|In which city is the Eiffel Tower?|Paris|Paris|Eiffel Tower|Paris
+K18|general|medium|What is the Japanese art of paper folding called?|origami|origami|Origami|folding paper
+K19|general|medium|How many holes are played in a standard round of golf?|18|18;eighteen|Golf|regular golf course
+K20|general|medium|In tennis, what word is used for a score of zero?|love|love|Tennis scoring system|for zero
+K21|general|medium|What is the maximum possible break in snooker without a free ball?|147|147|Maximum break|maximum
+K22|general|medium|Which composer wrote the "Moonlight Sonata"?|Ludwig van Beethoven|Ludwig van Beethoven;Beethoven|Piano Sonata No. 14 (Beethoven)|Moonlight
+K23|general|medium|Who painted "The Starry Night"?|Vincent van Gogh|Vincent van Gogh;van Gogh|The Starry Night|van Gogh
+K24|general|hard|In which year was the first FIFA World Cup held?|1930|1930|FIFA World Cup|Uruguay
+K25|general|hard|What does the abbreviation HTTP stand for?|Hypertext Transfer Protocol|Hypertext Transfer Protocol;HyperText Transfer Protocol;Hyper Text Transfer Protocol|HTTP|HTTP
+K26|general|hard|What is the longest bone in the human body?|femur|femur;thigh bone;thighbone|Femur|longest
+K27|general|hard|Which signalling code represents letters with dots and dashes?|Morse code|Morse code;Morse|Morse code|dashes
+K28|general|hard|What is the official language of Brazil?|Portuguese|Portuguese;Brazilian Portuguese|Brazil|official language
+K29|general|hard|How many players per team are on the field in rugby union?|15|15;fifteen|Rugby union|15 players
+K30|general|hard|In which country did the ancient board game chaturanga originate?|India|India;ancient India|Chaturanga|first known

@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Same Question, Four Phrasings: Prompt Sensitivity, Consistency and Hallucination of Four 7-9B Open-Weight Language Models on Short Factual Questions"
+authors:
+  - family-names: Saikot
+    given-names: Istiak Hossain
+    affiliation: "Independent researcher, Bangladesh"
+date-released: "2026-11-25"
+license: MIT
+keywords:
+  - large language models
+  - prompt sensitivity
+  - hallucination
+  - consistency
+  - open-weight models
