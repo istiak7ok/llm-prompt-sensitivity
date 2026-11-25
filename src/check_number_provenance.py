@@ -365,6 +365,9 @@ def main():
             elif re.search(r"SHA-?256|SHA\\b", ctx) and raw in {"256", "64"}:
                 status = "identifier"
                 note = "SHA-256 label, not a measured value"
+            elif re.search(r"doi\.org|10\.5281/zenodo|\\url\{https://doi\.org", ctx, re.I):
+                status = "identifier"
+                note = "Zenodo / DOI identifier, not a measured value"
             elif is_example_context(ctx) or re.search(r"wrong_fact|\\& format|token limit|extracted answer", ctx, re.I):
                 status = "example-or-historical"
                 note = "in-text example, gold/extracted answer, or historical date; not a summary statistic"

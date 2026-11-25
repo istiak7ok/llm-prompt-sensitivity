@@ -1,5 +1,8 @@
 # Prompt sensitivity, consistency and hallucination in open-weight LLMs
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24526709.svg)](https://doi.org/10.5281/zenodo.24526709)
+
+
 How much does the *wording* of a plain factual question change what a local open-weight LLM answers, and how often is that answer confidently wrong?
 This repository asks 120 original, source-verified short-answer questions to four 7-9B models (Llama-3.1-8B, Mistral-7B, Gemma-2-9B, Qwen2.5-7B) in four prompt styles (simple, detailed, polite, chain-of-thought) through Ollama. It then measures accuracy, consistency, hallucination, prompt sensitivity and error types.
 
@@ -8,7 +11,7 @@ This repository asks 120 original, source-verified short-answer questions to fou
 - **Excluded from all results:** `results/raw/qwen2.5_7b_pilot_qwen.jsonl` (pilot) and any `smoke-*` files.
 
 ## Data and code availability
-The public repository is https://github.com/istiak7ok/llm-prompt-sensitivity. A Zenodo archive DOI will be minted for the v1.0 release of that repository. The DOI has not been issued yet and will be inserted here: [Zenodo DOI for v1.0: to be added after minting].
+The public repository is https://github.com/istiak7ok/llm-prompt-sensitivity. A Zenodo archive is available under the concept DOI (all versions) https://doi.org/10.5281/zenodo.24526709 and the version DOI for v1.0 https://doi.org/10.5281/zenodo.24526710.
 
 ## Repository layout
 ```
