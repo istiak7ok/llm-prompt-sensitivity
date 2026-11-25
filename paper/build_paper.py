@@ -67,7 +67,111 @@ def _flatten_p_cols(tex_s):
     )
     return tex_s
 
+
+def _extract_braced(s, start):
+    """Return (inner, index_after_closing_brace) for a '{...}' group at start."""
+    if start >= len(s) or s[start] != "{":
+        raise ValueError("expected '{' at %d" % start)
+    depth = 0
+    i = start
+    while i < len(s):
+        if s[i] == "\\":
+            i += 2
+            continue
+        if s[i] == "{":
+            depth += 1
+        elif s[i] == "}":
+            depth -= 1
+            if depth == 0:
+                return s[start + 1:i], i + 1
+        i += 1
+    raise ValueError("unbalanced brace starting at %d" % start)
+
+
+def _longtables_to_tables(tex_s):
+    """Convert pandoc longtables that fit on one page into floating table environments.
+
+    Captions stay with the tabular body; the table can float so it never
+    overflows the text block or the page footer.
+    """
+    pattern = re.compile(r"\\begin\{longtable\}\[\]\{", re.S)
+
+    def convert_at(s, start):
+        # start points at \begin{longtable}[]{
+        brace = s.find("{", start + len("\\begin{longtable}[]"))
+        colspec, after_spec = _extract_braced(s, brace)
+        end_m = re.search(r"\\end\{longtable\}", s[after_spec:])
+        if not end_m:
+            raise ValueError("unclosed longtable")
+        body = s[after_spec:after_spec + end_m.start()].strip()
+        end_pos = after_spec + end_m.end()
+
+        cap_at = body.find(r"\caption")
+        if cap_at == -1:
+            raise ValueError("longtable without caption")
+        cap_brace = body.find("{", cap_at)
+        caption, after_cap = _extract_braced(body, cap_brace)
+        rest = body[after_cap:].lstrip()
+        if rest.startswith(r"\tabularnewline"):
+            rest = rest[len(r"\tabularnewline"):].lstrip()
+
+        top = re.search(r"\\toprule(?:\\noalign\{\})?", rest)
+        mid = re.search(r"\\midrule(?:\\noalign\{\})?", rest)
+        if not top or not mid or mid.start() < top.end():
+            raise ValueError("could not find header rules in longtable")
+        header = rest[top.end():mid.start()].strip()
+        header = re.sub(r"(?:\\tabularnewline|\\\\)\s*$", "", header).strip()
+        header = header.replace(
+            "Q; naive p; cluster-perm. p",
+            r"\shortstack[r]{Q; naive p;\\cluster-perm. p}",
+        )
+
+        foot = rest.find(r"\endlastfoot")
+        if foot == -1:
+            raise ValueError("could not find \\endlastfoot")
+        rows = rest[foot + len(r"\endlastfoot"):].strip()
+
+        n_cols = len(re.sub(r"@\{\}|[^lrc]", "", colspec))
+        if n_cols == 6 and set(re.sub(r"@\{\}", "", colspec)) <= set("l"):
+            colspec = r"@{}llll>{\raggedright\arraybackslash}p{0.36\linewidth}l@{}"
+            font = r"\footnotesize"
+        elif n_cols >= 8:
+            font = r"\footnotesize"
+        else:
+            font = r"\small"
+
+        tabular = (
+            "\\begin{table}[tbp]\n"
+            "\\centering\n"
+            f"{font}\n"
+            f"\\caption{{{caption}}}\n"
+            f"\\begin{{tabular}}{{{colspec}}}\n"
+            "\\toprule\n"
+            f"{header} \\\\\n"
+            "\\midrule\n"
+            f"{rows}\n"
+            "\\bottomrule\n"
+            "\\end{tabular}\n"
+            "\\end{table}"
+        )
+        return tabular, end_pos
+
+    out = []
+    pos = 0
+    n = 0
+    for m in pattern.finditer(tex_s):
+        out.append(tex_s[pos:m.start()])
+        block, end_pos = convert_at(tex_s, m.start())
+        out.append(block)
+        pos = end_pos
+        n += 1
+    out.append(tex_s[pos:])
+    print(f"converted {n} longtables to table floats")
+    return "".join(out)
+
+
 tex = _flatten_p_cols(tex)
+tex = _longtables_to_tables(tex)
 # Keep figures from requesting a full text-height box (overflows the page once a caption is added).
 tex = tex.replace(
     "width=0.85\\linewidth,height=\\textheight,keepaspectratio",

@@ -1,10 +1,17 @@
-\usepackage{etoolbox}
-\AtBeginEnvironment{longtable}{\scriptsize}
-\setlength{\tabcolsep}{3pt}
-\usepackage{xurl}
+% Table and figure layout: floats, not longtables that can overflow the footer.
+\usepackage{caption}
+\captionsetup{font=small, skip=4pt, justification=raggedright, singlelinecheck=false}
+\usepackage[section]{placeins}
+\setlength{\tabcolsep}{4pt}
 \makeatletter
 \def\fps@figure{tbp}
+\def\fps@table{tbp}
 \makeatother
-\renewcommand{\topfraction}{0.9}
-\renewcommand{\textfraction}{0.1}
-\renewcommand{\floatpagefraction}{0.8}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.45}
+\renewcommand{\textfraction}{0.12}
+\renewcommand{\floatpagefraction}{0.7}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\usepackage{xurl}
